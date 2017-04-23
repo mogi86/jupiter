@@ -1,0 +1,27 @@
+version: "2"
+services:
+  jupiter_web:
+    build: ./web
+    container_name: jupiter_web
+    ports:
+      - "32776:80"
+    depends_on:
+      - jupiter_db
+    links:
+      - jupiter_db
+    volumes:
+      - ./jupiter:/var/www/jupiter
+
+  jupiter_db:
+    build: ./db
+    container_name: jupiter_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jupiter
+      MYSQL_USER: jupiter
+      MYSQL_PASSWORD: jupiter
+      MYSQL_HOST: "localhost"
+    volumes:
+      - ./db/init.d:/docker-entrypoint-initdb.d
+    expose:
+      - 3306
