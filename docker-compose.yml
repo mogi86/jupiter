@@ -16,12 +16,11 @@ services:
     build: ./db
     container_name: jupiter_db
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: jupiter
-      MYSQL_USER: jupiter
-      MYSQL_PASSWORD: jupiter
+      #MYSQL_USER: jupiter
+      #MYSQL_PASSWORD: jupiter
       MYSQL_HOST: "localhost"
-    volumes:
-      - ./db/init.d:/docker-entrypoint-initdb.d
     expose:
       - 3306
