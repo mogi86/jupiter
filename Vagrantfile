@@ -50,9 +50,10 @@ chkconfig mysqld on
 echo "DROP DATABASE IF EXISTS jupiter;" | mysql -u root
 echo "CREATE DATABASE jupiter;" | mysql -u root
 
+## web setup
+cp /vagrant/httpd/conf/httpd.conf /etc/httpd/conf/
 service iptables stop
 chkconfig iptables off
-
 chkconfig httpd on
 service httpd start
 SCRIPT
