@@ -11,6 +11,7 @@ services:
       - jupiter_db
     volumes:
       - ./jupiter:/var/www/jupiter
+    restart: always
 
   jupiter_db:
     build: ./db
@@ -26,3 +27,4 @@ services:
       - 3306:3306
     expose:
       - 3306
+    restart: always
