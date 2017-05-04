@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 
-class RakutenApiController extends Controller
+/**
+ * 書籍APIコントローラ
+ */
+class BookApiController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +19,7 @@ class RakutenApiController extends Controller
     {}
 
     /**
-     * 楽天API取得
+     * 書籍情報取得
      *
      * @return \Illuminate\Http\Response
      */
@@ -25,4 +28,22 @@ class RakutenApiController extends Controller
         $data = [1, 2, 3];
         return Response::json($data);
     }
+
+    /**
+     * 書籍情報登録
+     */
+    public function register()
+    {}
+
+    /**
+     * 書籍情報更新
+     */
+    public function update()
+    {}
+
+    /**
+     * 書籍情報削除
+     */
+    public function destroy()
+    {}
 }
