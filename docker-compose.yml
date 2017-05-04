@@ -22,5 +22,7 @@ services:
       #MYSQL_USER: jupiter
       #MYSQL_PASSWORD: jupiter
       MYSQL_HOST: "localhost"
+    ports:
+      - 3306:3306
     expose:
       - 3306

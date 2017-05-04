@@ -12,7 +12,7 @@
 - docker exec -it [webコンテナID] /bin/bash
 [guest]
 - cd /var/www/jupiter
-- cp .env.example .env
+- cp .env.docker .env
 - composer install
 - php artisan key:generate
 - php artisan cache:clear
