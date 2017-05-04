@@ -25,6 +25,7 @@ class BookApiController extends Controller
      */
     public function get()
     {
+        phpinfo();
         $data = [1, 2, 3];
         return Response::json($data);
     }
