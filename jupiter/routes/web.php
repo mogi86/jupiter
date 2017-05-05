@@ -22,4 +22,6 @@ Route::get('/home', 'HomeController@index');
 //書籍API関連
 Route::group(['prefix' => 'api/book'], function () {
     Route::get('/get', 'BookApiController@get');
+    Route::get('/show', 'BookApiController@show');
+    Route::post('/store', 'BookApiController@store');
 });

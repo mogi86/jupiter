@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as RequestFacades;
 use Illuminate\Support\Facades\Response;
+use App\Services\BookService;
 
 /**
  * 書籍APIコントローラ
@@ -15,25 +17,28 @@ class BookApiController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {}
+    public function __construct(BookService $bookService)
+    {
+        $this->bookService = $bookService;
+    }
 
     /**
      * 書籍情報取得
      *
      * @return \Illuminate\Http\Response
      */
-    public function get()
+    public function show()
     {
-        phpinfo();
-        $data = [1, 2, 3];
-        return Response::json($data);
+        $getParamList = RequestFacades::all();
+        $formedGetParamList = $this->bookService->removeUnnecessaryGetParam(collect($getParamList));
+        $bookInfoList = $this->bookService->getBookInfo($formedGetParamList);
+        return Response::json($bookInfoList);
     }
 
     /**
      * 書籍情報登録
      */
-    public function register()
+    public function store(Request $request)
     {}
 
     /**
