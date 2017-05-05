@@ -30,9 +30,11 @@ class BookApiController extends Controller
     public function show()
     {
         $getParamList = RequestFacades::all();
+        //不要なGETパラメータを除去
         $formedGetParamList = $this->bookService->removeUnnecessaryGetParam(collect($getParamList));
+        //書籍情報取得
         $bookInfoList = $this->bookService->getBookInfo($formedGetParamList);
-        return Response::json($bookInfoList);
+        return $bookInfoList->toJson(JSON_UNESCAPED_UNICODE);
     }
 
     /**
