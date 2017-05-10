@@ -24,6 +24,8 @@ RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Tokyo|" /etc/php.ini
 RUN curl -s https://getcomposer.org/installer | php
 RUN mv ./composer.phar /usr/local/bin/composer
 
+RUN cp /usr/share/zoneinfo/Japan /etc/localtime
+
 COPY httpd.conf /etc/httpd/conf.d/httpd.conf
 
 EXPOSE 80

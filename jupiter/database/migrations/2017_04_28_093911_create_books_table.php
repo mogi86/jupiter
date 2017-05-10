@@ -17,12 +17,13 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('isbn_code', 13);
             $table->string('title');
-            $table->string('author');
-            $table->string('publisher');
+            $table->string('author')->nullable();
+            $table->string('publisher')->nullable();
             $table->string('genre');
             $table->string('leading_status');
-            $table->string('borrower_user_id');
+            $table->integer('borrower_user_id')->nullable()->unsigned();
             $table->timestamps();
+            $table->foreign('borrower_user_id')->references('id')->on('books');
         });
     }
 
@@ -33,6 +34,10 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
+        Schema::table('books', function (Blueprint $table) {
+            $table->dropForeign(['borrower_user_id']);
+        });
+
         Schema::dropIfExists('books');
     }
 }

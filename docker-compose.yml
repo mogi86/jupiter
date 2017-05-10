@@ -11,6 +11,7 @@ services:
       - jupiter_db
     volumes:
       - ./jupiter:/var/www/jupiter
+    restart: always
 
   jupiter_db:
     build: ./db
@@ -22,5 +23,8 @@ services:
       #MYSQL_USER: jupiter
       #MYSQL_PASSWORD: jupiter
       MYSQL_HOST: "localhost"
+    ports:
+      - 3306:3306
     expose:
       - 3306
+    restart: always
