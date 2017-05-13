@@ -6,9 +6,13 @@ use App\User;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+//use Illuminate\Foundation\Testing\WithoutMiddleware;
+//use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
+
     /**
      * A Dusk test example.
      *
@@ -26,7 +30,8 @@ class LoginTest extends DuskTestCase
                     ->type('email', $user->email)
                     ->type('password', 'secret')
                     ->press('Login')
-                    ->assertPathIs('/home');
+                    ->assertPathIs('/home')
+                    ->assertSee('こんな文字ないよ');
         });
     }
 }
