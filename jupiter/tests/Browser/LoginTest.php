@@ -31,7 +31,7 @@ class LoginTest extends DuskTestCase
                     ->type('password', 'secret')
                     ->press('Login')
                     ->assertPathIs('/home')
-                    ->assertSee('こんな文字ないよ');
+                    ->assertSee('You are logged in!');
         });
     }
 }
