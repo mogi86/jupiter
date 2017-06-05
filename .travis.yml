@@ -5,16 +5,19 @@ php:
   - '7.1'
 
 before_script:
+  - cd jupiter
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --prefer-source
 
 before_script:
+  - cd jupiter
   - cp .env.vagrnt .env
   - mysql -e 'create database jupiter;'
   - composer install --no-interaction
   - php artisan key:generate
 
 script:
+  - cd jupiter/
   - ./vendor/bin/phpunit
 
 
