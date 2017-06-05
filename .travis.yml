@@ -11,7 +11,7 @@ before_script:
 
 before_script:
   - cd jupiter
-  - cp .env.vagrnt .env
+  - cp .env.vagrant .env
   - mysql -e 'create database jupiter;'
   - composer install --no-interaction
   - php artisan key:generate
