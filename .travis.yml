@@ -4,6 +4,10 @@ php:
   - '7.0'
   - '7.1'
 
+sudo: required
+
+dist: trusty
+
 before_script:
   - cd jupiter
   - curl -s http://getcomposer.org/installer | php
@@ -12,9 +16,14 @@ before_script:
   - mysql -e 'create database jupiter;'
   - composer install --no-interaction
   - php artisan key:generate
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  - php artisan serve &
 
 script:
   - ./vendor/bin/phpunit
+  - php artisan dusk
 
 
 services:
