@@ -18,7 +18,8 @@ RUN yum install --enablerepo=epel,remi-php70,remi -y \
                               php-pdo \
                               php-xml \
                               php-xdebug \
-                              php-memcached
+                              php-memcached \
+                              php-devel
 RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Tokyo|" /etc/php.ini
 
 RUN curl -s https://getcomposer.org/installer | php
