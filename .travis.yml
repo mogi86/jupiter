@@ -7,6 +7,9 @@ php:
   - '7.1'
 
 before_script:
+  - sudo apt-get update
+  - sudo apt-get install php7-memcached memcached
+  - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - cd jupiter
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev --prefer-source
