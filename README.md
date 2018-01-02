@@ -118,7 +118,7 @@ $ wget http://pecl.php.net/get/memcached-3.0.4.tgz
 $ tar xfvz memcached-3.0.4.tgz
 $ cd memcached-3.0.4
 $ yum -y install php-pear
-$ yum -y install gcc gcc-c++ autoconf automake zlib-devel
+$ yum -y install gcc gcc-c++ autoconf automake zlib-devel telnet
 $ phpize
 $ ./configure --disable-memcached-sasl
 $ yum -y remove libmemcached
