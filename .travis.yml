@@ -7,6 +7,7 @@ php:
   - '7.1'
 
 services:
+  - mysql
   - memcached
 
 before_script:
@@ -30,7 +31,3 @@ before_script:
 script:
   - ./vendor/bin/phpunit
   #- php artisan dusk
-
-
-services:
-  - mysql
