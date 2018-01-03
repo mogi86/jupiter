@@ -11,10 +11,10 @@ services:
   - memcached
 
 before_script:
-  - php -m
   - sudo apt-get update
+  - sudo apt-get install php-pear
   #- sudo apt-get install php-memcached memcached
-  #- pecl install memcached
+  - sudo pecl install memcached
   - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - cd jupiter
   - curl -s http://getcomposer.org/installer | php
@@ -30,6 +30,5 @@ before_script:
   - php artisan serve &
 
 script:
-  - php -m
   - ./vendor/bin/phpunit
   #- php artisan dusk
