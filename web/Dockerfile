@@ -8,7 +8,7 @@ RUN yum -y install zip unzip
 RUN rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 RUN rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 RUN yum install -y httpd
-RUN yum install --enablerepo=epel,remi-php70,remi -y \
+RUN yum install --enablerepo=epel,remi-php72,remi -y \
                               php \
                               php-cli \
                               php-gd \
