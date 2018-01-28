@@ -32,7 +32,12 @@ class UserController extends Controller
         //ユーザ一覧取得
         $userList = $this->userService->getUserList($request->email);
 
-        print_r($userList);
+        //print_r($userList);
+        $data = [
+            'userList' => $userList,
+        ];
+
+        return view('user.index', $data);
     }
 
     /**
