@@ -25,3 +25,8 @@ Route::group(['prefix' => 'api/book'], function () {
     Route::get('/show', 'BookApiController@show');
     Route::post('/store', 'BookApiController@store');
 });
+
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', 'UserController@index');
+});
