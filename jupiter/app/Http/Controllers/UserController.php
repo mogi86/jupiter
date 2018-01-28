@@ -23,14 +23,14 @@ class UserController extends Controller
     /**
      * 一覧画面
      *
-     * @param Response $response
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Response $response)
+    public function index(Request $request)
     {
         //ユーザ一覧取得
-        $userList = $this->userService->getUserList($response->email);
+        $userList = $this->userService->getUserList($request->email);
 
         print_r($userList);
     }
