@@ -27,6 +27,8 @@ Route::group(['prefix' => 'api/book'], function () {
 });
 
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/', 'UserController@index');
+Route::group(['prefix' => 'user', 'as' => 'user::'], function () {
+    Route::get('/', 'UserController@index')->name('index');
+    Route::get('/create/', 'UserController@create')->name('create');
+    Route::post('/store/', 'UserController@store')->name('store');
 });

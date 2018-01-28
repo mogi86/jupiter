@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -41,24 +42,24 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * ユーザ作成
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('user.register');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UserRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        var_dump(123);
     }
 
     /**
