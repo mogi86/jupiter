@@ -1,3 +1,5 @@
+test
+
 # git clone
 - git clone https://github.com/mogi86/jupiter.git
 - cd jupiter
